@@ -3,4 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="negro_semitrasnparente">#49050505</color>
+    <color name="negro_semitrasnparente2">#81050505</color>
+
+    <color name="gris_suave">#fafafa</color>
 </resources>

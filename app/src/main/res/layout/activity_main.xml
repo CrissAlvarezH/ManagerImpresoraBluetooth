@@ -1,142 +1,248 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="miercoles.dsl.bluetoothprintprueba.MainActivity">
-
-    <TextView
-        android:id="@+id/txt_label"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="10dp"
-        android:textColor="@color/colorPrimary"
-        android:textSize="19sp"
-        android:textStyle="bold" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="clickBuscarDispositivosSync"
-        android:text="Dispositivos sincornizados" />
-
-    <EditText
-        android:id="@+id/edt_texto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:hint="Texto"
-        android:text="Texto" />
-
+    android:background="#7bf4f4f4">
 
     <LinearLayout
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="miercoles.dsl.bluetoothprintprueba.MainActivity">
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Fuente" />
-
-            <Spinner
-                android:id="@+id/spn_fuente"
-                android:spinnerMode="dialog"
-                android:entries="@array/array_fuente"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"></Spinner>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
+        <TextView
+            android:id="@+id/txt_label"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:gravity="center"
+            android:padding="10dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="19sp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:onClick="clickBuscarDispositivosSync"
+            android:text="Dispositivos sincornizados" />
+
+
+        <!-- TEXTO -->
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Negrita" />
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/edt_texto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:hint="Texto"
+                    android:text="Texto" />
 
 
-            <Spinner
-                android:id="@+id/spn_negrita"
-                android:entries="@array/array_negrita"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"></Spinner>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
 
-        </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Fuente" />
 
-            <TextView
-                android:layout_width="wrap_content"
+                        <Spinner
+                            android:id="@+id/spn_fuente"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:entries="@array/array_fuente"
+                            android:spinnerMode="dialog"></Spinner>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Negrita" />
+
+
+                        <Spinner
+                            android:id="@+id/spn_negrita"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:entries="@array/array_negrita"></Spinner>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ancho" />
+
+                        <Spinner
+                            android:id="@+id/spn_ancho"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:entries="@array/array_ancho"
+                            android:spinnerMode="dialog"></Spinner>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Alto" />
+
+                        <Spinner
+                            android:id="@+id/spn_alto"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:entries="@array/array_alto"
+                            android:spinnerMode="dialog"></Spinner>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <RelativeLayout
+                android:id="@+id/relative_imagen"
+                android:layout_width="match_parent"
+                android:layout_height="170dp"
+                android:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/img_dibujo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:scaleType="centerCrop" />
+
+                <Button
+                    android:id="@+id/btn_dibujar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/btn_semitransparente"
+                    android:paddingTop="10dp"
+                    android:text="Dibujar"
+                    android:textColor="@color/gris_suave"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Ancho" />
+                android:layout_below="@id/img_dibujo"
+                android:orientation="horizontal">
 
-            <Spinner
-                android:id="@+id/spn_ancho"
-                android:spinnerMode="dialog"
-                android:entries="@array/array_ancho"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"></Spinner>
+                <TextView
+                    android:layout_marginRight="10dp"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ROTAR IMAGEN: " />
 
-        </LinearLayout>
+                <EditText
+                    android:id="@+id/edt_angulo_img"
+                    android:inputType="number"
+                    android:text="0"
+                    android:gravity="center"
+                    android:hint=" Angulo "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Alto" />
+        <Button
+            android:id="@+id/btn_imprimir_texto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:layout_marginTop="15dp"
+            android:text="IMPRIMIR TEXTO" />
 
-            <Spinner
-                android:id="@+id/spn_alto"
-                android:spinnerMode="dialog"
-                android:entries="@array/array_alto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"></Spinner>
+        <Button
+            android:id="@+id/btn_imprimir_img"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:text="IMPRIMIR IMAGEN" />
 
-        </LinearLayout>
+        <Button
+            android:id="@+id/btn_cerrar_conexion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:layout_marginTop="15dp"
+            android:text="CERRAR CONEXION" />
 
     </LinearLayout>
-
-
-    <Button
-        android:id="@+id/btn_imprimir"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="IMPRIMIR" />
-
-    <Button
-        android:id="@+id/btn_cerrar_conexion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="CERRAR CONEXION" />
-
-</LinearLayout>
+</ScrollView>

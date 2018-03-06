@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.kyanogen.signatureview.SignatureView xmlns:sign="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/firma"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            sign:enableSignature="true"
+            sign:penColor="#000000"
+            sign:penSize="4dp">
+
+        </com.kyanogen.signatureview.SignatureView>
+
+        <LinearLayout
+            android:id="@+id/layout_progreso_firma"
+            android:background="@color/negro_semitrasnparente"
+            android:gravity="center"
+            android:visibility="gone"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ProgressBar
+                android:layout_width="68dp"
+                android:layout_height="68dp" />
+
+            <TextView
+                android:textStyle="bold"
+                android:textColor="#fff"
+                android:text="Guardando Firma..."
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>
