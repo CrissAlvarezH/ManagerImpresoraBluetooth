@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -13,20 +14,24 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.frosquivel.magicalcamera.MagicalCamera;
-import com.frosquivel.magicalcamera.MagicalPermissions;
 import com.kyanogen.signatureview.SignatureView;
 
+import org.apache.commons.io.FileUtils;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import miercoles.dsl.bluetoothprintprueba.R;
+import miercoles.dsl.bluetoothprintprueba.utilidades.Constantes;
 
 public class DibujarActivity extends AppCompatActivity {
 
     private static final int COD_PERMISOS = 426;
     private LinearLayout layoutProgresoImagen;
     private SignatureView signatureView;
-    private MagicalCamera magicalCamera;
+    private String ruta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,15 +46,6 @@ public class DibujarActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-
-        String[] permissions = new String[] {
-                Manifest.permission.CAMERA,
-                Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE
-        };
-
-        MagicalPermissions magicalPermissions = new MagicalPermissions(this, permissions);
-        magicalCamera = new MagicalCamera(this, 40, magicalPermissions);
     }
 
     @Override
@@ -73,24 +69,33 @@ public class DibujarActivity extends AppCompatActivity {
                         @Override
                         public void run() {
 
-                            String nombreImg = "dibujo";
+                            FileOutputStream out = null;
+                            try {
+                                File fileImg = Constantes.getRutaDestinoImg("dibujo");
+                                ruta = fileImg.getAbsolutePath();
 
-                            /*Guarda la foto en la memoria interna del dispositivo, si no tiene espacio, pasa a
-                            * guardarla en la SD card, retorna la ruta en la cual almacenó la foto */
-                            final String rutaImg = magicalCamera.savePhotoInMemoryDevice(
-                                    signatureView.getSignatureBitmap(),// bitmap de la foto a guardar
-                                    nombreImg,// nombre con el que se guardará la imgImagen
-                                    "DibujosImprimir",// nombre de la carpeta donde se guardarán las fotos
-                                    MagicalCamera.PNG,// formato de compresion
-                                    false // true: le agrega la fecha al nombre de la foto para no replicarlo
-                            );
+                                out = new FileOutputStream(fileImg);
+
+                                // Comprimimos el bitmap en el Stream
+                                signatureView.getSignatureBitmap().compress(Bitmap.CompressFormat.PNG, 100, out);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            } finally {
+                                try {
+                                    if (out != null) {
+                                        out.close();
+                                    }
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            }
 
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
                                     Intent intentAtras = new Intent();
                                     Bundle bundle = new Bundle();
-                                    bundle.putString("rutaImg", rutaImg);
+                                    bundle.putString("rutaImg", ruta);
                                     intentAtras.putExtras(bundle);
                                     setResult(Activity.RESULT_OK, intentAtras);
 
