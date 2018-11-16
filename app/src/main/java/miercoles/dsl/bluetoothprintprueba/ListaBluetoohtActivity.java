@@ -23,6 +23,7 @@ public class ListaBluetoohtActivity extends AppCompatActivity {
     private RecyclerView recycler;
     private ArrayList<ItemDispositivo> dispositivos;
     private DispositivosAdapter adapterDispositivos;
+    private BluetoothAdapter bluetoothAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +37,7 @@ public class ListaBluetoohtActivity extends AppCompatActivity {
 
         dispositivos = new ArrayList<ItemDispositivo>();
 
-        BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         if(bluetoothAdapter != null){
             if(!bluetoothAdapter.isEnabled()){// si no está activado
                 // Mandamos a activarlo
@@ -77,6 +78,29 @@ public class ListaBluetoohtActivity extends AppCompatActivity {
             intentPaAtras.putExtras(bundle);
             setResult(Activity.RESULT_OK, intentPaAtras);
             finish();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if( resultCode == RESULT_OK ) {
+            if ( requestCode == 243 ) {
+                if( bluetoothAdapter.isEnabled() ){
+                    // Obtenemos la lista de dispositivos sincronizados
+                    Set<BluetoothDevice> dispositivosSync = bluetoothAdapter.getBondedDevices();
+
+                    // Si hay dispositivos sincronizados
+                    if(dispositivosSync.size() > 0){
+                        // Llenamos el array de dispositivos para pasarlo al adapter
+                        for(BluetoothDevice dispositivo : dispositivosSync){
+                            dispositivos.add(new ItemDispositivo(dispositivo.getName(),  dispositivo.getAddress()));
+                            adapterDispositivos.notifyDataSetChanged();
+                        }
+                    }
+                }
+            }
         }
     }
 }

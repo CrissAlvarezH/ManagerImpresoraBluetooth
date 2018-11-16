@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         outputStream.write(getByteString(texto, negrita, fuente, ancho, alto));
 
-                        outputStream.write("\n\n\n\n".getBytes());
+                        outputStream.write("\n\n".getBytes());
 
                     } catch (IOException e) {
                         Log.e(TAG_DEBUG, "Error al escribir en el socket");
