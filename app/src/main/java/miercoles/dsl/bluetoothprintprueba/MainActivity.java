@@ -163,6 +163,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         outputStream.write(getByteString(texto, negrita, fuente, ancho, alto));
 
+                        outputStream.write("\n\n\n\n".getBytes());
 
                     } catch (IOException e) {
                         Log.e(TAG_DEBUG, "Error al escribir en el socket");
@@ -189,6 +190,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             TransformacionRotarBitmap transformacionRotarBitmap = new TransformacionRotarBitmap(this, angulo);
 
                             outputStream.write(PrintBitmap.POS_PrintBMP(transformacionRotarBitmap.transform(null, bitmap, 0, 0), ANCHO_IMG_58_MM, MODE_PRINT_IMG));
+
+                            outputStream.write("\n\n\n\n".getBytes());
 
                         } catch (IOException e) {
                             Toast.makeText(this, "Error al intentar imprimir imagen", Toast.LENGTH_SHORT).show();

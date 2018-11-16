@@ -97,6 +97,7 @@
                             android:id="@+id/spn_negrita"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:spinnerMode="dialog"
                             android:entries="@array/array_negrita"></Spinner>
 
                     </LinearLayout>
@@ -144,6 +145,21 @@
                     </LinearLayout>
 
                 </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#58949494" />
+
+                <Button
+                    android:id="@+id/btn_imprimir_texto"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginRight="7dp"
+                    android:text="IMPRIMIR TEXTO"
+                    android:textColor="@color/colorAccent" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
@@ -152,6 +168,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp">
+
 
             <RelativeLayout
                 android:id="@+id/relative_imagen"
@@ -182,103 +199,123 @@
                     android:textStyle="bold" />
 
             </RelativeLayout>
+
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/img_dibujo"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_marginRight="10dp"
-                    android:textStyle="bold"
-                    android:textSize="14sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="ROTAR IMAGEN: " />
-
-                <EditText
-                    android:id="@+id/edt_angulo_img"
-                    android:inputType="number"
-                    android:text="0"
-                    android:gravity="center"
-                    android:hint=" Angulo "
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp">
 
-            <RelativeLayout
-                android:id="@+id/relative_foto"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:visibility="visible">
 
-                <ImageView
-                    android:id="@+id/img_foto"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:scaleType="centerCrop" />
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/img_dibujo"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:text="ROTAR IMAGEN: "
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/edt_angulo_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:hint=" Angulo "
+                        android:inputType="number"
+                        android:text="0" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#58949494" />
 
                 <Button
-                    android:id="@+id/btn_tomar_foto"
+                    android:id="@+id/btn_imprimir_dibujo"
+                    style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:background="@drawable/btn_semitransparente"
-                    android:paddingTop="10dp"
-                    android:text="TOMAR FOTO"
-                    android:textColor="@color/gris_suave"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-            </RelativeLayout>
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginRight="7dp"
+                    android:text="IMPRIMIR DIBUJO"
+                    android:textColor="@color/colorAccent" />
+            </LinearLayout>
         </android.support.v7.widget.CardView>
 
-        <Button
-            android:id="@+id/btn_imprimir_texto"
-            android:layout_width="match_parent"
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:layout_marginRight="7dp"
-            android:layout_marginTop="20dp"
-            android:text="IMPRIMIR TEXTO" />
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp">
 
-        <Button
-            android:id="@+id/btn_imprimir_dibujo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:layout_marginRight="7dp"
-            android:text="IMPRIMIR DIBUJO" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btn_imprimir_img"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:layout_marginRight="7dp"
-            android:text="IMPRIMIR IMAGEN" />
+                <RelativeLayout
+                    android:id="@+id/relative_foto"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:id="@+id/img_foto"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:scaleType="centerCrop" />
+
+                    <Button
+                        android:id="@+id/btn_tomar_foto"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@drawable/btn_semitransparente"
+                        android:paddingTop="10dp"
+                        android:text="TOMAR FOTO"
+                        android:textColor="@color/gris_suave"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#58949494" />
+
+                <Button
+                    android:id="@+id/btn_imprimir_img"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginRight="7dp"
+                    android:text="IMPRIMIR IMAGEN"
+                    android:textColor="@color/colorAccent" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
 
         <Button
             android:id="@+id/btn_cerrar_conexion"
