@@ -141,27 +141,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     try {
                         String texto = edtTexto.getText().toString() + "\n";
 
-                        /*// si el titulo no sobrepasa los caracteres por linea
-                        if(texto.length() < LIMITE_CARACTERES_POR_LINEA) {
-                            // Caculamos desde caracter ponerlo para que esté centrado
-                            int posicion = 16 - ((int) texto.length() / 2 );
-
-                            // relenamos con caracteres en blanco
-                            for(int i=0; i< posicion; i++){
-                                texto = " " + texto;
-                            }
-
-                            texto += "\n";
-                        }*/
-
-
                         int fuente = Integer.parseInt(spnFuente.getSelectedItem().toString());
                         int negrita = spnNegrita.getSelectedItem().toString().equals("Si") ? 1 : 0;
                         int ancho = Integer.parseInt(spnAncho.getSelectedItem().toString());
                         int alto = Integer.parseInt(spnAlto.getSelectedItem().toString());
 
+                        // Para que acepte caracteres espciales
+                        outputStream.write(0x1C); outputStream.write(0x2E); // Cancelamos el modo de caracteres chino (FS .)
+                        outputStream.write(0x1B); outputStream.write(0x74); outputStream.write(0x10); // Seleccionamos los caracteres escape (ESC t n) - n = 16(0x10) para WPC1252
 
-                        outputStream.write(getByteString(texto, negrita, fuente, ancho, alto));
+                        outputStream.write( getByteString(texto, negrita, fuente, ancho, alto) );
 
                         outputStream.write("\n\n".getBytes());
 
@@ -518,7 +507,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         byte[] strData = null;
         try {
-            strData = str.getBytes("GBK");
+            strData = str.getBytes("iso-8859-1");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             return null;
