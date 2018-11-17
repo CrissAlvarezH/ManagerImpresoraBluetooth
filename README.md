@@ -12,9 +12,13 @@ Aplicación Android que permite conectarse vía Bluetooth a una impresora e impr
 <img src="https://crissalvarezh.github.io/ImagenesRepos/imgs/ImprisoraBluetooth/impresion_texto.gif"  width="300px" >
 
  **El resultado es el siguiente.**
- 
- <img src="https://crissalvarezh.github.io/ImagenesRepos/imgs/ImprisoraBluetooth/texto_impreso.jpg"  width="300px" >
- 
+
+<img src="https://crissalvarezh.github.io/ImagenesRepos/imgs/ImprisoraBluetooth/texto_impreso.jpg"  width="300px" >
+
+**Cabe resaltar que se puede imprimir caracteres especiales**
+
+<img src="https://crissalvarezh.github.io/ImagenesRepos/imgs/ImprisoraBluetooth/imprimir_caracteres_especiales.jpg" width="550px" >
+
 * **¿Algo mas bacano? Imprimimos imágenes entonces, en este caso un dibujo.**
 
 <img src="https://crissalvarezh.github.io/ImagenesRepos/imgs/ImprisoraBluetooth/imprimir_dibujo.gif"  width="300px" >
@@ -30,3 +34,5 @@ Aplicación Android que permite conectarse vía Bluetooth a una impresora e impr
 **El resultado es el siguiente.**
  
 <img src="https://crissalvarezh.github.io/ImagenesRepos/imgs/ImprisoraBluetooth/imagen_impresa.jpg"  width="300px" >
+
+
